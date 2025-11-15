@@ -1,0 +1,631 @@
+<!--
+FILE: index.html
+This single HTML file contains: index.html, style.css and script.js inlined for easy copy-paste.
+To split into separate files:
+- copy the contents inside the <style> tag into style.css
+- copy the contents inside the <script> tag into script.js
+-->
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fried Chicks — Pizza & More</title>
+  <meta name="description"
+    content="Fried Chicks - delicious pizza, shawarma, zinger and wings. Order online or call 0318-7490003" />
+
+  <!-- Google Fonts and Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* ======= FILE: style.css (copy below into style.css if you want separate files) ======= */
+    :root {
+      --accent: #ff4d4f;
+      --dark: #0b0f14;
+      --muted: #94a3b8;
+      --glass: rgba(255, 255, 255, 0.06);
+      --card: rgba(255, 255, 255, 0.04);
+      --maxw: 1100px;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Poppins', system-ui, Segoe UI, Roboto, Helvetica, Arial;
+      color: #e6eef8;
+      background: linear-gradient(180deg, #071126 0%, #081827 40%, #0b1220 100%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    .container {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 24px
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0
+    }
+
+    .logo {
+      display: flex;
+      gap: 12px;
+      align-items: center
+    }
+
+    .logo svg {
+      width: 56px;
+      height: 56px
+    }
+
+    .brand {
+      line-height: 1
+    }
+
+    .brand .title {
+      font-weight: 800;
+      font-size: 20px;
+      color: #fff
+    }
+
+    .brand .sub {
+      font-size: 12px;
+      color: var(--muted)
+    }
+
+    nav ul {
+      display: flex;
+      gap: 14px;
+      list-style: none;
+      margin: 0;
+      padding: 0
+    }
+
+    nav a {
+      padding: 10px 14px;
+      border-radius: 12px;
+      color: #e6eef8
+    }
+
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.03)
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      margin-top: 16px;
+      border-radius: 18px;
+      padding: 48px;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(255, 77, 79, 0.06), rgba(255, 153, 51, 0.03));
+      box-shadow: 0 10px 30px rgba(2, 6, 23, 0.6)
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 28px;
+      align-items: center
+    }
+
+    .hero h1 {
+      font-size: 44px;
+      margin: 0;
+      color: white
+    }
+
+    .hero p.lead {
+      color: var(--muted);
+      margin-top: 10px;
+      font-size: 16px
+    }
+
+    .hero .cta {
+      margin-top: 18px;
+      display: flex;
+      gap: 12px
+    }
+
+    .btn {
+      background: var(--accent);
+      color: white;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer
+    }
+
+    .btn.ghost {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.06)
+    }
+
+    /* floating paragraph behind hero */
+    .hero .back-quote {
+      position: absolute;
+      right: -30px;
+      top: 10px;
+      font-weight: 800;
+      font-size: 120px;
+      opacity: 0.06;
+      transform: rotate(-12deg);
+      pointer-events: none
+    }
+
+    /* Cards */
+    .card {
+      background: var(--card);
+      padding: 18px;
+      border-radius: 14px
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 18px
+    }
+
+    .item {
+      display: flex;
+      gap: 12px;
+      align-items: center
+    }
+
+    .item img {
+      width: 84px;
+      height: 84px;
+      object-fit: cover;
+      border-radius: 10px
+    }
+
+    .item h4 {
+      margin: 0;
+      color: #fff
+    }
+
+    .item p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    .price {
+      margin-left: auto;
+      font-weight: 700;
+      color: var(--accent)
+    }
+
+    .deals {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px
+    }
+
+    .deal {
+      flex: 1;
+      padding: 14px;
+      border-radius: 12px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+    }
+
+    .deal h3 {
+      margin: 0 0 6px
+    }
+
+    /* Pages sections */
+    section {
+      margin-top: 28px
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 28px 0;
+      color: var(--muted);
+      text-align: center
+    }
+
+    /* Contact card */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 18px
+    }
+
+    .map {
+      height: 280px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: linear-gradient(180deg, #0f1724, #061226);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted)
+    }
+
+    /* animation */
+    .floaty {
+      animation: float 6s ease-in-out infinite
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0px)
+      }
+
+      50% {
+        transform: translateY(-8px)
+      }
+
+      100% {
+        transform: translateY(0px)
+      }
+    }
+
+    /* responsive */
+    @media(max-width:880px) {
+      .hero-grid {
+        grid-template-columns: 1fr
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    /* a little magical opening effect */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.02), transparent 20%);
+      pointer-events: none;
+      mix-blend-mode: screen
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <!-- Simple SVG logo (professional) -->
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1">
+              <stop offset="0" stop-color="#ff7a59" />
+              <stop offset="1" stop-color="#ff3b3b" />
+            </linearGradient>
+          </defs>
+          <circle cx="32" cy="32" r="30" fill="url(#g)" />
+          <path d="M20 36c2-6 12-8 18-6 6 2 6 6 4 10-2 4-8 6-14 6-6 0-10-4-8-10z" fill="#fff" opacity="0.95" />
+          <path d="M30 22c0 2-4 4-6 4s-4-2-4-4 4-6 6-6 4 2 4 6z" fill="#fff" />
+        </svg>
+        <div class="brand">
+          <div class="title">Fried Chicks</div>
+          <div class="sub">Pizza • Shawarma • Wings</div>
+        </div>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#order">Order</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero card">
+        <div class="hero-grid">
+          <div>
+            <div class="back-quote">"welcome"</div>
+            <h1>Fried Chicks — Hot, Crisp & Delicious</h1>
+            <p class="lead">Welcome — I promised and believe you that you will enjoy this fun and taste everywhere and
+              everytime.</p>
+
+            <div class="cta">
+              <button class="btn" onclick="document.querySelector('#order').scrollIntoView({behavior:'smooth'})">Order
+                Now</button>
+              <a class="btn ghost" href="#menu">See Menu</a>
+            </div>
+
+            <div style="margin-top:18px;color:var(--muted);font-size:14px">Call to order: <strong
+                style="color:#fff">0318-7490003</strong></div>
+          </div>
+
+          <div class="card floaty" style="text-align:center">
+            <img src="img.jpg" alt="Pizza"
+              style="width:100%;height:240px;object-fit:cover;border-radius:10px;margin-bottom:12px">
+            <div style="color:var(--muted);font-size:13px">Fresh dough • Premium toppings • Baked to order</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="menu">
+        <div class="card">
+          <h2 style="margin:0;color:white">Menu</h2>
+          <p style="color:var(--muted);margin:6px 0 12px">High quality images and clear prices — pick a size, choose a
+            deal, enjoy!</p>
+
+          <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start">
+            <div style="flex:1;min-width:320px">
+              <h3 style="color:#fff;margin-bottom:6px">Pizzas</h3>
+
+              <div class="menu-grid">
+                <!-- Pizza types: Fajita, Barbe Kue, Tikka -->
+                <div class="card">
+                  <div class="item">
+                    <img
+                      src="https://images.unsplash.com/photo-1601924582975-3f4c0a7b6e8f?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder"
+                      alt="Fajita Pizza">
+                    <div>
+                      <h4>Fajita Pizza</h4>
+                      <p>Small 8" — Rs 300 • Medium 10" — Rs 550 • Large 14" — Rs 750</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card">
+                  <div class="item">
+                    <img
+                      src="https://images.unsplash.com/photo-1542281286-9e0a16bb7366?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder"
+                      alt="Barbe Kue Pizza">
+                    <div>
+                      <h4>Barbe Kue Pizza</h4>
+                      <p>Small 8" — Rs 300 • Medium 10" — Rs 550 • Large 14" — Rs 750</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card">
+                  <div class="item">
+                    <img
+                      src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder"
+                      alt="Tikka Pizza">
+                    <div>
+                      <h4>Tikka Pizza</h4>
+                      <p>Small 8" — Rs 300 • Medium 10" — Rs 550 • Large 14" — Rs 750</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="deals">
+                <div class="deal">
+                  <h3>Deal No 1</h3>
+                  <div>3 Small pizzas + 1L cold drink — <strong>Rs 1050</strong></div>
+                </div>
+                <div class="deal">
+                  <h3>Deal No 2</h3>
+                  <div>2 Medium pizzas + 1L cold drink — <strong>Rs 1250</strong></div>
+                </div>
+                <div class="deal">
+                  <h3>Deal No 3</h3>
+                  <div>2 Large pizzas + 1L cold drink — <strong>Rs 1550</strong></div>
+                </div>
+              </div>
+
+            </div>
+
+            <div style="width:320px;">
+              <h3 style="color:#fff;margin-bottom:6px">Other Items</h3>
+              <div class="card">
+                <div class="item"><img
+                    src="https://images.unsplash.com/photo-1604917867932-7f0a5b9b2ada?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder"
+                    alt="Shawarma">
+                  <div>
+                    <h4>Shawarma</h4>
+                    <p>Rs 180</p>
+                  </div>
+                  <div class="price">Rs 180</div>
+                </div>
+                <hr style="opacity:0.06;margin:12px 0">
+                <div class="item"><img
+                    src="https://images.unsplash.com/photo-1550317138-10000687a72b?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder"
+                    alt="Zinger">
+                  <div>
+                    <h4>Zinger Burger</h4>
+                    <p>Rs 280</p>
+                  </div>
+                  <div class="price">Rs 280</div>
+                </div>
+                <hr style="opacity:0.06;margin:12px 0">
+                <div class="item"><img
+                    src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder"
+                    alt="Hot Wings">
+                  <div>
+                    <h4>12 pc Hot Wings</h4>
+                    <p>Rs 800</p>
+                  </div>
+                  <div class="price">Rs 800</div>
+                </div>
+                <hr style="opacity:0.06;margin:12px 0">
+                <div class="item"><img
+                    src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder"
+                    alt="Nuggets">
+                  <div>
+                    <h4>12 pc Nuggets</h4>
+                    <p>Rs 600</p>
+                  </div>
+                  <div class="price">Rs 600</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="card">
+          <h2 style="color:#fff;margin:0">About Us</h2>
+          <p style="color:var(--muted);margin-top:8px">Fried Chicks is a friendly neighbourhood eatery offering
+            flame-kissed pizzas, juicy shawarmas, and crispy wings. We focus on fresh ingredients, bold flavour and
+            quick delivery across Sargodha.</p>
+        </div>
+      </section>
+
+      <section id="order">
+        <div class="card">
+          <h2 style="color:#fff;margin:0">Order</h2>
+          <p style="color:var(--muted);margin-top:8px">Place your order below or call <strong>0318-7490003</strong>.</p>
+
+          <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:12px">
+            <form id="orderForm" style="flex:1;min-width:320px">
+              <label style="display:block;margin-top:8px;color:var(--muted)">Name</label>
+              <input id="custName" required
+                style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:#fff">
+
+              <label style="display:block;margin-top:8px;color:var(--muted)">Phone</label>
+              <input id="custPhone" required placeholder="0318xxxxxxxx"
+                style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:#fff">
+
+              <label style="display:block;margin-top:8px;color:var(--muted)">Order Details</label>
+              <textarea id="orderDetails" placeholder="e.g. 2 Medium Barbe Kue, 1 Shawarma"
+                style="width:100%;min-height:120px;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:#fff"></textarea>
+
+              <label style="display:block;margin-top:8px;color:var(--muted)">Distance to delivery location (km) — used
+                to calculate delivery charge (Rs 70–150)</label>
+              <input id="distance" type="number" min="0" step="0.1" placeholder="e.g. 3.2"
+                style="width:160px;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:#fff">
+
+              <div style="margin-top:12px;display:flex;gap:10px;align-items:center">
+                <button type="button" class="btn" onclick="placeOrder()">Send Order</button>
+                <button type="reset" class="btn ghost">Clear</button>
+              </div>
+
+              <div id="orderResult" style="margin-top:12px;color:var(--muted)"></div>
+            </form>
+
+            <div style="width:360px;">
+              <div class="card">
+                <h4 style="margin-top:0;color:#fff">Quick Info</h4>
+                <p style="color:var(--muted)"><i class="fa fa-phone"></i> Order receiver: <strong>0318-7490003</strong>
+                </p>
+                <p style="color:var(--muted)"><i class="fa fa-map-marker-alt"></i> Location: <strong>Water sypply road
+                    near purana naza sanama in Sargodha</strong></p>
+                <p style="color:var(--muted)"><i class="fa fa-money-bill-wave"></i> Delivery charge: Rs 70 - Rs 150
+                  (adjusts by distance)</p>
+                <p style="color:var(--muted)">When you click Send Order the site will prepare an order summary and open
+                  your phone dialer or show instructions.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="card">
+          <h2 style="color:#fff;margin:0">Contact & Delivery</h2>
+          <div class="contact-grid" style="margin-top:12px">
+            <div>
+              <p style="color:var(--muted)">Phone: <strong>0318-7490003</strong></p>
+              <p style="color:var(--muted)">Address text: <strong>Water sypply road near purana naza sanama in
+                  Sargodha</strong></p>
+              <h4 style="color:#fff;margin-top:18px">Delivery</h4>
+              <p style="color:var(--muted)">Delivery fee is dynamically adjusted between Rs 70 and Rs 150 depending on
+                distance. (You can change the formula easily in script.js)</p>
+            </div>
+            <div class="map">
+              <div>
+                <div style="font-size:18px;color:#fff;margin-bottom:8px"><i class="fa fa-map"></i> Map</div>
+                <div style="color:var(--muted);max-width:260px">(Interactive map placeholder) — Add a Google Maps iframe
+                  or Leaflet map with coordinates to enable live mapping</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div>&copy; <span id="year"></span> Fried Chicks — All rights reserved.</div>
+    </footer>
+  </div>
+
+  <script>
+    /* ======= FILE: script.js (copy below into script.js if you want separate files) ======= */
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+
+    // Delivery fee calculation: map distance (km) to Rs 70-150.
+    // Example: base 70 for <=1 km, then + 12 rupees per km, clamped.
+    function calcDeliveryCharge(km) {
+      if (!km || km <= 1) return 70;
+      const fee = 70 + Math.round(km * 12);
+      return clamp(fee, 70, 150);
+    }
+
+    function placeOrder() {
+      const name = document.getElementById('custName').value.trim();
+      const phone = document.getElementById('custPhone').value.trim();
+      const details = document.getElementById('orderDetails').value.trim();
+      const distance = parseFloat(document.getElementById('distance').value) || 0;
+
+      if (!name || !phone || !details) {
+        document.getElementById('orderResult').textContent = 'Please provide name, phone and order details.';
+        return;
+      }
+
+      const delivery = calcDeliveryCharge(distance);
+      const summary = `Order summary:\nName: ${name}\nPhone: ${phone}\nOrder: ${details}\nDistance: ${distance} km\nDelivery charge: Rs ${delivery}`;
+
+      // Show on page
+      document.getElementById('orderResult').textContent = summary.replace(/\n/g, ' | ');
+
+      // Attempt to open phone dialer with prefilled message (works on many mobile devices)
+      const receiver = '03187490003'; // digits only
+      const smsBody = encodeURIComponent(`Hello Fried Chicks, I would like to place this order:\n${summary}`);
+
+      // Provide two actions: open SMS (if supported) and open tel link
+      const smsLink = `sms:${receiver}?body=${smsBody}`;
+      const telLink = `tel:${receiver}`;
+
+      // Prompt user with choices
+      const proceed = confirm('Send order summary to order receiver (opens phone app on mobile)? Click OK to open your SMS app or Cancel to copy order summary.');
+      if (proceed) {
+        // try to open sms link
+        window.location.href = smsLink;
+      } else {
+        // copy to clipboard
+        navigator.clipboard && navigator.clipboard.writeText(summary).then(() => {
+          alert('Order summary copied to clipboard. You can paste it into WhatsApp, SMS or call the number 0318-7490003 to place your order.');
+        }, () => {
+          alert('Copy failed. Please manually copy:\n' + summary);
+        });
+      }
+    }
+
+    // Smooth navigation
+    document.querySelectorAll('nav a').forEach(a => {
+      a.addEventListener('click', e => { e.preventDefault(); const target = document.querySelector(a.getAttribute('href')); if (target) target.scrollIntoView({ behavior: 'smooth' }); });
+    });
+
+  </script>
+</body>
+
+</html>
